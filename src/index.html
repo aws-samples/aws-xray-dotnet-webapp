@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product App</title>
+</head>
+<body>
+<div>
+    Remember to configure the RDS_CONNECTION_STRING in Web.config before using. <br />
+    <h2>Get Product by ID</h2>  
+    <label>Id:</label>
+    <input type="text" id="prodId" size="5"/>
+    <input type="button" value="Search" onclick="find();"/>
+    <p id="product"/>
+</div>
+    <div>
+        <form id="addProductForm" method="post">
+            <h2>Add New Product</h2>
+            <p>
+                <label for="productId">Id:</label>
+                <input type="number" name="Id" size="5"/>
+            </p>
+            <p>
+                <label for="productName">Name:</label>
+                <input type="text" name="Name" size="5" />
+            </p>
+            <p>
+                <label for="productPrice">Price:</label>
+                <input type="number" name="Price" size="5" />
+            </p>
+            <input type="button" id="addProduct" value="Add" />
+        </form>
+
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+    var uri = 'api/products';
+
+    function formatItem(item) {
+      return item.Name + ': $' + item.Price;
+    }
+
+    function find() {
+      var id = $('#prodId').val();
+      $.getJSON(uri + '/' + id)
+          .done(function (data) {
+            $('#product').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#product').text('Error: ' + err);
+          });
+    }
+
+    $('#addProduct').click(function () {
+        $.post(uri,
+              $("#addProductForm").serialize(),
+              function (value) {
+                  $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+              },
+              "json"
+        );
+    });
+    </script>
+</body>
+</html>
