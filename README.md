@@ -17,7 +17,28 @@ This application is written to be deployed with Elastic Beanstalk. It uses .ebex
 
 
 3. Deploy the application to Elastic Beanstalk. [Steps](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_NET.quickstart.html#aws-elastic-beanstalk-tutorial-step-2-publish-application). 
- * Make sure you attached an IAM role to your EC2 instance with at least AmazonDynamoDBReadOnlyAccess.
+ * Make sure you attached an IAM role to your EC2 instance with the following policy
+ ```
+ {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "sns:Publish",
+                "xray:PutTelemetryRecords",
+                "xray:PutTraceSegments",
+                "dynamodb:PutItem",
+                "dynamodb:GetItem",
+                "dynamodb:DescribeTable"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Allow"
+        }
+    ]
+}
+```
 
 4. Access the application using EB environment URL.
 
