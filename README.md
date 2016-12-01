@@ -16,11 +16,12 @@ This application is written to be deployed with Elastic Beanstalk. It uses .ebex
   * "Data Source=(RDS endpoint),(port number);User ID=(your user name);Password=(your password);"
 
 
-3. Deploy the application to Elastic Beanstalk. [Steps](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_NET.quickstart.html#aws-elastic-beanstalk-tutorial-step-2-publish-application)
+3. Deploy the application to Elastic Beanstalk. [Steps](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_NET.quickstart.html#aws-elastic-beanstalk-tutorial-step-2-publish-application). 
+ * Make sure you attached an IAM role to your EC2 instance with at least AmazonDynamoDBReadOnlyAccess.
 
 4. Access the application using EB environment URL.
 
 ##FAQ
 
 1. What to do if I get an "Error: Internal Server Error"?
-  * You can use AWS X-Ray to debug this. Go to AWS X-Ray console and find the failed trace, and look for Exception. Probably because you RDS DB instance security group do not have an inbound rule for your EC2 instance. 
+  * You can use AWS X-Ray to debug this. Go to AWS X-Ray console and find the failed trace, and look for Exception. Probably because you EC2 instance don't have the enough permission to access DynamoDB or RDS DB instance.
