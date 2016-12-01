@@ -47,7 +47,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSXRayRecorder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.1.0.0-beta\lib\net45\AWSXRayRecorder.dll</HintPath>
+      <HintPath>..\packages\AWSXRayRecorder.1.0.1-beta\lib\net45\AWSXRayRecorder.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
