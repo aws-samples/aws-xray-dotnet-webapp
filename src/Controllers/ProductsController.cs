@@ -2,15 +2,12 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Net;
-using System.Web.Hosting;
 using System.Web.Http;
 using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Util;
 using Amazon.XRay.Recorder.Core;
-using Amazon.XRay.Recorder.Core.Internal;
-using Amazon.XRay.Recorder.Core.Sampling;
 using Amazon.XRay.Recorder.Handler.Http;
 using Amazon.XRay.Recorder.Handler.Sql;
 using SampleEBWebApplication.Models;

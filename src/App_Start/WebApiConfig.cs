@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using Amazon.XRay.Recorder.Handler.Http;
-using SampleEBWebApplication.Controllers;
 
 namespace SampleEBWebApplication
 {
