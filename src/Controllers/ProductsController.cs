@@ -55,7 +55,7 @@ namespace SampleEBWebApplication.Controllers
         {
             try
             {
-                AWSXRayRecorder.Instance.TraceMethod("AddProduct", () => AddProdcut(product));
+                AWSXRayRecorder.Instance.TraceMethod("AddProduct", () => AddProduct(product));
                 return StatusCode(HttpStatusCode.Created);
             }
             catch (Exception)
@@ -92,7 +92,7 @@ namespace SampleEBWebApplication.Controllers
             return BuildProduct(item);
         }
 
-        private void AddProdcut(Product product)
+        private void AddProduct(Product product)
         {
             var document = new Document();
             document["Id"] = product.Id;
