@@ -8,8 +8,9 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Util;
 using Amazon.XRay.Recorder.Core;
-using Amazon.XRay.Recorder.Handler.Http;
-using Amazon.XRay.Recorder.Handler.Sql;
+using Amazon.XRay.Recorder.Handlers.AwsSdk;
+using Amazon.XRay.Recorder.Handlers.SqlServer;
+using Amazon.XRay.Recorder.Handlers.System.Net;
 using SampleEBWebApplication.Models;
 
 namespace SampleEBWebApplication.Controllers
@@ -19,7 +20,7 @@ namespace SampleEBWebApplication.Controllers
         private static readonly Lazy<AmazonDynamoDBClient> LazyDdbClient = new Lazy<AmazonDynamoDBClient>(() =>
         {
             var client = new AmazonDynamoDBClient(EC2InstanceMetadata.Region ?? RegionEndpoint.USEast1);
-            AWSXRayRecorder.Instance.AddEventHandler(client);
+            new TracingEventHandler(AWSXRayRecorder.Instance).AddEventHandler(client);
             return client;
         });
         

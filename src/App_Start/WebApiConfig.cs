@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
-using Amazon.XRay.Recorder.Handler.Http;
+using Amazon.XRay.Recorder.Core.Strategies;
+using Amazon.XRay.Recorder.Handlers.AspNet.WebApi;
 
 namespace SampleEBWebApplication
 {
@@ -8,7 +9,7 @@ namespace SampleEBWebApplication
         public static void Register(HttpConfiguration config)
         {
             // Add the message handler to HttpCofiguration
-            config.MessageHandlers.Add(new TracingMessageHandler());
+            config.MessageHandlers.Add(new TracingMessageHandler("XRayWebApp"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
