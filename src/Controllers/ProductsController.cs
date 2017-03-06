@@ -20,7 +20,7 @@ namespace SampleEBWebApplication.Controllers
         private static readonly Lazy<AmazonDynamoDBClient> LazyDdbClient = new Lazy<AmazonDynamoDBClient>(() =>
         {
             var client = new AmazonDynamoDBClient(EC2InstanceMetadata.Region ?? RegionEndpoint.USEast1);
-            new TracingEventHandler(AWSXRayRecorder.Instance).AddEventHandler(client);
+            new AWSSdkTracingHandler(AWSXRayRecorder.Instance).AddEventHandler(client);
             return client;
         });
         

@@ -47,7 +47,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSXRayRecorder.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Core.1.0.0-beta\lib\net45\AWSXRayRecorder.Core.dll</HintPath>
+      <HintPath>..\packages\AWSXRayRecorder.Core.1.0.1-beta\lib\net45\AWSXRayRecorder.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSXRayRecorder.Handlers.AspNet.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
@@ -55,7 +55,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSXRayRecorder.Handlers.AwsSdk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.AwsSdk.1.0.0-beta\lib\net45\AWSXRayRecorder.Handlers.AwsSdk.dll</HintPath>
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.AwsSdk.1.0.1-beta\lib\net45\AWSXRayRecorder.Handlers.AwsSdk.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSXRayRecorder.Handlers.SqlServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
@@ -63,7 +63,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="AWSXRayRecorder.Handlers.System.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.System.Net.1.0.0-beta\lib\net45\AWSXRayRecorder.Handlers.System.Net.dll</HintPath>
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.System.Net.1.0.1-beta\lib\net45\AWSXRayRecorder.Handlers.System.Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
