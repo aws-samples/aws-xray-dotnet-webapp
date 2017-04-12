@@ -105,7 +105,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".ebextensions\generate-configuration-file.config" />
     <Content Include=".ebextensions\xray.config">
       <SubType>Designer</SubType>
     </Content>
