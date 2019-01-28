@@ -5,7 +5,7 @@ This application is written to be deployed with Elastic Beanstalk. It uses .ebex
 
 1. Create a DynamoDB table
 2. Set an application confige DDB_TABLE_NAME with the create DynamoDB table name
-3. Install AWS X-Ray daemon as a Windows service
+3. Install AWS X-Ray daemon as a [Windows service](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon-local.html)
 
 ## How to Run The App
 
