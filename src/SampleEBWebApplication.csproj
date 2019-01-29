@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,43 +41,40 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.3.5\lib\net45\AWSSDK.Core.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\AWSSDK.Core.3.3.31.6\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.DynamoDBv2.3.3.1\lib\net45\AWSSDK.DynamoDBv2.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\AWSSDK.DynamoDBv2.3.3.17.4\lib\net45\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Core.1.1.0\lib\net45\AWSXRayRecorder.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AWSSDK.XRay, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.XRay.3.3.5.15\lib\net45\AWSSDK.XRay.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.AspNet.WebApi, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.AspNet.WebApi.1.1.0\lib\net45\AWSXRayRecorder.Handlers.AspNet.WebApi.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AWSXRayRecorder.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Core.2.4.0-beta\lib\net45\AWSXRayRecorder.Core.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.AwsSdk, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.AwsSdk.1.1.0\lib\net45\AWSXRayRecorder.Handlers.AwsSdk.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AWSXRayRecorder.Handlers.AspNet, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.AspNet.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.AspNet.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.SqlServer, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.SqlServer.1.1.0\lib\net45\AWSXRayRecorder.Handlers.SqlServer.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AWSXRayRecorder.Handlers.AwsSdk, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.AwsSdk.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.AwsSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.System.Net, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bc6a608d1bdc3681, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.System.Net.1.1.0\lib\net45\AWSXRayRecorder.Handlers.System.Net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AWSXRayRecorder.Handlers.SqlServer, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.SqlServer.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AWSXRayRecorder.Handlers.System.Net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.System.Net.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -85,6 +84,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -92,17 +97,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include=".ebextensions\xray.config">
@@ -139,6 +133,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.3.17.4\analyzers\dotnet\cs\AWSSDK.DynamoDBv2.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.XRay.3.3.5.15\analyzers\dotnet\cs\AWSSDK.XRay.CodeAnalysis.dll" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -154,7 +152,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1162</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1162/</IISUrl>
+          <IISUrl>http://localhost:1172/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

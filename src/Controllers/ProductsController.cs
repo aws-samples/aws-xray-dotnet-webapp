@@ -8,7 +8,6 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Util;
 using Amazon.XRay.Recorder.Core;
-using Amazon.XRay.Recorder.Handlers.AwsSdk;
 using Amazon.XRay.Recorder.Handlers.SqlServer;
 using Amazon.XRay.Recorder.Handlers.System.Net;
 using SampleEBWebApplication.Models;
@@ -19,8 +18,7 @@ namespace SampleEBWebApplication.Controllers
     {
         private static readonly Lazy<AmazonDynamoDBClient> LazyDdbClient = new Lazy<AmazonDynamoDBClient>(() =>
         {
-            var client = new AmazonDynamoDBClient(EC2InstanceMetadata.Region ?? RegionEndpoint.USEast1);
-            new AWSSdkTracingHandler(AWSXRayRecorder.Instance).AddEventHandler(client);
+            var client = new AmazonDynamoDBClient(EC2InstanceMetadata.Region ?? RegionEndpoint.USWest2);
             return client;
         });
         
@@ -41,13 +39,32 @@ namespace SampleEBWebApplication.Controllers
                 AWSXRayRecorder.Instance.TraceMethod("Outgoing Http Request", MakeHttpRequest);
 
                 // Trace SQL query
-                AWSXRayRecorder.Instance.TraceMethod("Query SQL", () => QuerySql(id));
+                // AWSXRayRecorder.Instance.TraceMethod("Query SQL", () => QuerySql(id));
+
+                CustomSegbsegment(); // generate custom subsegment
 
                 return Ok(product);
             } 
             catch(ProductNotFoundException)
             {
                 return NotFound();
+            }
+        }
+
+        private void CustomSegbsegment()
+        {
+            try
+            {
+                AWSXRayRecorder.Instance.BeginSubsegment("CustomSubsegment");
+                // Custom logic
+            }
+            catch (Exception e)
+            {
+                AWSXRayRecorder.Instance.AddException(e);
+            }
+            finally
+            {
+                AWSXRayRecorder.Instance.EndSubsegment();
             }
         }
 
