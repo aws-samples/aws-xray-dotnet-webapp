@@ -6,7 +6,7 @@ packages/
 *.suo
 *.user
 *.sln.docstates
-
+*.vs
 # Elastic Beanstalk Files
 
 .elasticbeanstalk/*
