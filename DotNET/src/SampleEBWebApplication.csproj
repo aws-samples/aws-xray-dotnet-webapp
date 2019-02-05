@@ -49,20 +49,20 @@
     <Reference Include="AWSSDK.XRay, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.XRay.3.3.5.15\lib\net45\AWSSDK.XRay.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Core.2.4.0-beta\lib\net45\AWSXRayRecorder.Core.dll</HintPath>
+    <Reference Include="AWSXRayRecorder.Core, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Core.2.5.0\lib\net45\AWSXRayRecorder.Core.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.AspNet, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.AspNet.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.AspNet.dll</HintPath>
+    <Reference Include="AWSXRayRecorder.Handlers.AspNet, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.AspNet.2.5.0\lib\net45\AWSXRayRecorder.Handlers.AspNet.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.AwsSdk, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.AwsSdk.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.AwsSdk.dll</HintPath>
+    <Reference Include="AWSXRayRecorder.Handlers.AwsSdk, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.AwsSdk.2.5.0\lib\net45\AWSXRayRecorder.Handlers.AwsSdk.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.SqlServer, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.SqlServer.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.SqlServer.dll</HintPath>
+    <Reference Include="AWSXRayRecorder.Handlers.SqlServer, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.SqlServer.2.5.0\lib\net45\AWSXRayRecorder.Handlers.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="AWSXRayRecorder.Handlers.System.Net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSXRayRecorder.Handlers.System.Net.2.4.0-beta\lib\net45\AWSXRayRecorder.Handlers.System.Net.dll</HintPath>
+    <Reference Include="AWSXRayRecorder.Handlers.System.Net, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4223940d4a8596b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSXRayRecorder.Handlers.System.Net.2.5.0\lib\net45\AWSXRayRecorder.Handlers.System.Net.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>

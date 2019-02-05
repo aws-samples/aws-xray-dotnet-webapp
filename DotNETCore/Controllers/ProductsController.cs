@@ -26,6 +26,8 @@ namespace SampleEBASPNETCoreApplication.Controllers
             {
                 var client = new AmazonDynamoDBClient(EC2InstanceMetadata.Region ?? RegionEndpoint.USWest2);
 
+                //var client = new AmazonDynamoDBClient(RegionEndpoint.USWest2); // When running locally, configure with desired region and comment above line of client creation.
+
                 return client;
             });
 
@@ -76,6 +78,7 @@ namespace SampleEBASPNETCoreApplication.Controllers
             try
             {
                 AWSXRayRecorder.Instance.BeginSubsegment("CustomSubsegment");
+                // business logic
             }
             catch (Exception e)
             {

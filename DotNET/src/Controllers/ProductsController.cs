@@ -19,6 +19,8 @@ namespace SampleEBWebApplication.Controllers
         private static readonly Lazy<AmazonDynamoDBClient> LazyDdbClient = new Lazy<AmazonDynamoDBClient>(() =>
         {
             var client = new AmazonDynamoDBClient(EC2InstanceMetadata.Region ?? RegionEndpoint.USWest2);
+
+            // var client = new AmazonDynamoDBClient(RegionEndpoint.USWest2); // When running locally, configure with desired region and comment above line of client creation.
             return client;
         });
         
@@ -41,7 +43,7 @@ namespace SampleEBWebApplication.Controllers
                 // Trace SQL query
                 // AWSXRayRecorder.Instance.TraceMethod("Query SQL", () => QuerySql(id));
 
-                CustomSegbsegment(); // generate custom subsegment
+                CustomSubsegment(); // generate custom subsegment
 
                 return Ok(product);
             } 
@@ -51,7 +53,7 @@ namespace SampleEBWebApplication.Controllers
             }
         }
 
-        private void CustomSegbsegment()
+        private void CustomSubsegment()
         {
             try
             {
