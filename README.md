@@ -26,9 +26,10 @@ The App uses .ebextensions to setup AWS resources and configuration, which inclu
 1. AWS Credentials on the local box should have the [policy](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/README.md#policy)
 2. Create a DynamoDB table with name `SampleProduct` in the desired region
 3. Install AWS X-Ray daemon as a [Windows service](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon-local.html)
-4. Make sure, the region is same for DDB table on the AWS console and DDB client in the code for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L21) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L27) 
-5. Configure Sampling Rules in the [AWS X-Ray Console](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html).
-6. The X-Ray daemon running locally should be configured in the same region as that of sampling rules through X-Ray console
+4. Comment DDB client creation for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L21) and [.NET Core](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L27), which is used for Elasticbeanstalk and uncomment line for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L23) and [.NET Core](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L29)  
+5. Make sure, the region is same for DDB table on the AWS console and DDB client in the code for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L23) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L29) 
+6. Configure Sampling Rules in the [AWS X-Ray Console](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html).
+7. The X-Ray daemon running locally should be configured in the same region as that of sampling rules through X-Ray console
 
 ### URL for the App
 
