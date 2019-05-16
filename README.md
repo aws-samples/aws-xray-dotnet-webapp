@@ -48,7 +48,7 @@ Access the application : <Default_URL>/index.html.
                 "xray:PutTelemetryRecords",
                 "xray:GetSamplingRules",
                 "xray:GetSamplingTargets",
-                "xray:GetSamplingStatisticSummaries"
+                "xray:GetSamplingStatisticSummaries",
                 "dynamodb:PutItem",
                 "dynamodb:GetItem",
                 "dynamodb:DescribeTable"
