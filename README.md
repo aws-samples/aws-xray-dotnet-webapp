@@ -54,13 +54,14 @@ You can install .NET Agent to automatically instrument .NET tracing SDK into the
 4. Make sure, the region is same for DDB table on the AWS console and DDB client in the code for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET-Agent/src/Controllers/ProductsController.cs#L18) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore-Agent/Controllers/ProductsController.cs#L24) 
 5. Configure Sampling Rules in the [AWS X-Ray Console](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html).
 6. The X-Ray daemon running locally should be configured in the same region as that of sampling rules through X-Ray console
+7. If host sample application on IIS, make sure you follow the instructions [here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-3.1) to complete the setups and configurations.
 
 ### Installation
 
 For using the .NET Agent on your application, please see instructions below. For more information about .NET Agent, please take reference to [page](https://github.com/aws/aws-xray-dotnet-agent#installation).
 
 1. Make sure you meet the [prerequisites](https://github.com/aws/aws-xray-dotnet-agent#prerequisites) and [minimum requirements](https://github.com/aws/aws-xray-dotnet-agent#minimum-requirements) for using/building the .NET agent.
-2. Following the [steps](https://github.com/aws/aws-xray-dotnet-agent#internet-information-services-iis) if you're running on IIS or [steps](https://github.com/aws/aws-xray-dotnet-agent#others-not-iis) otherwise on how to install X-Ray .NET Agent for your apps.
+2. Follow the [steps](https://github.com/aws/aws-xray-dotnet-agent#internet-information-services-iis) if you're running on IIS or [steps](https://github.com/aws/aws-xray-dotnet-agent#others-not-iis) otherwise on how to install X-Ray .NET Agent for your apps.
 3. Launch your application, open the web link in the browser, perform some operations, and you can see traces in the AWS X-Ray Console.
 
 ## URL for the Apps
