@@ -2,9 +2,9 @@
 
 Folder `DotNET` and `DotNETCore` contains ASP.NET and ASP.NET Core applications that have been instrumented for [AWS X-Ray](https://aws.amazon.com/xray/) and are written to be deployed with Elastic Beanstalk or run locally.
 
-Folder `DotNET-Agent` and `DotNETCore-Agent` contains ASP.NET and ASP.NET Core application that are for [AWS X-Ray .NET Agent](https://github.com/aws/aws-xray-dotnet-agent) and are written to run locally.
+Folder `DotNET-Agent` and `DotNETCore-Agent` contains ASP.NET and ASP.NET Core applications that are for [AWS X-Ray .NET Agent](https://github.com/aws/aws-xray-dotnet-agent) and are written to run locally.
 
-## How to Run The App (X-Ray .NET SDK)
+## How to Run The App for X-Ray .NET SDK
 
 ### Elastic beanstalk
 
@@ -40,11 +40,11 @@ The App uses .ebextensions to setup AWS resources and configuration, which inclu
 4. Fill it into web.config key "RDS_CONNECTION_STRING" for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Web.config#L38) and fill the string for [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L142)
 5. Uncomment call to `QuerySql()` for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L42) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L64)
 
-## How to Run The App (X-Ray .NET Agent)
+## How to Run The App for X-Ray .NET Agent
 
-Sample apps for .NET Agent are identical to the ones for .NET SDK, except that samples for .NET SDK have been instrumented with X-Ray .NET SDK, while samples for .NET Agent are not.
+Sample apps for .NET Agent are identical to the ones for .NET SDK, except that the later have been instrumented with X-Ray .NET SDK, while the former are not.
 
-You can install .NET Agent to automatically instrument .NET tracing SDK into the applications by following the requirement and steps below.
+You can install .NET Agent to automatically instrument .NET SDK into the sample applications by following the requirement and steps below.
 
 ### Requirement
 
@@ -54,11 +54,11 @@ You can install .NET Agent to automatically instrument .NET tracing SDK into the
 4. Make sure, the region is same for DDB table on the AWS console and DDB client in the code for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET-Agent/src/Controllers/ProductsController.cs#L18) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore-Agent/Controllers/ProductsController.cs#L24) 
 5. Configure Sampling Rules in the [AWS X-Ray Console](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html).
 6. The X-Ray daemon running locally should be configured in the same region as that of sampling rules through X-Ray console
-7. If host sample application on IIS, make sure you follow the instructions [here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-3.1) to complete the setups and configurations.
+7. If host sample application on IIS, make sure you follow the instructions [here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-3.1) to complete the setups and configurations before installing .NET Agent.
 
 ### Installation
 
-For using the .NET Agent on your application, please see instructions below. For more information about .NET Agent, please take reference to [page](https://github.com/aws/aws-xray-dotnet-agent#installation).
+Below are the general steps to install .NET Agent. For more information, please take reference to [page](https://github.com/aws/aws-xray-dotnet-agent).
 
 1. Make sure you meet the [prerequisites](https://github.com/aws/aws-xray-dotnet-agent#prerequisites) and [minimum requirements](https://github.com/aws/aws-xray-dotnet-agent#minimum-requirements) for using/building the .NET agent.
 2. Follow the [steps](https://github.com/aws/aws-xray-dotnet-agent#internet-information-services-iis) if you're running on IIS or [steps](https://github.com/aws/aws-xray-dotnet-agent#others-not-iis) otherwise on how to install X-Ray .NET Agent for your apps.
