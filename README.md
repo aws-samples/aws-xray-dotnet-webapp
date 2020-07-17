@@ -1,9 +1,10 @@
 # aws-xray-dotnet-webapp
-An ASP.NET and ASP.NET Core application that has been instrumented for [AWS X-Ray](https://aws.amazon.com/xray/).
 
-These applications are written to be deployed with Elastic Beanstalk or run locally.
+Folder `DotNET` and `DotNETCore` contains ASP.NET and ASP.NET Core applications that have been instrumented for [AWS X-Ray](https://aws.amazon.com/xray/) and are written to be deployed with Elastic Beanstalk or run locally.
 
-## How to Run The App
+Folder `DotNET-Agent` and `DotNETCore-Agent` contains ASP.NET and ASP.NET Core application that are for [AWS X-Ray .NET Agent](https://github.com/aws/aws-xray-dotnet-agent) and are written to run locally.
+
+## How to Run The App (X-Ray .NET SDK)
 
 ### Elastic beanstalk
 
@@ -31,11 +32,42 @@ The App uses .ebextensions to setup AWS resources and configuration, which inclu
 6. Configure Sampling Rules in the [AWS X-Ray Console](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html).
 7. The X-Ray daemon running locally should be configured in the same region as that of sampling rules through X-Ray console
 
-### URL for the App
+### Enable SQL query (optional)
+
+1. By default, SQL query is disabled. 
+2. Create a RDS SQL Server DB instance. [Steps](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html#CHAP_GettingStarted.Creating.SQLServer)
+3. Construct the connection string for SQL Server `"Data Source=(RDS endpoint),(port number);User ID=(your user name);Password=(your password);"`
+4. Fill it into web.config key "RDS_CONNECTION_STRING" for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Web.config#L38) and fill the string for [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L142)
+5. Uncomment call to `QuerySql()` for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L42) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L64)
+
+## How to Run The App (X-Ray .NET Agent)
+
+Sample apps for .NET Agent are identical to the ones for .NET SDK, except that samples for .NET SDK have been instrumented with X-Ray .NET SDK, while samples for .NET Agent are not.
+
+You can install .NET Agent to automatically instrument .NET tracing SDK into the applications by following the requirement and steps below.
+
+### Requirement
+
+1. AWS Credentials on the local box should have the [policy](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/README.md#policy)
+2. Create a DynamoDB table with name `SampleProduct` in the desired region. The partion key for the table should be `Id` and of type `Number`.
+3. Install AWS X-Ray daemon as a [Windows service](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon-local.html)
+4. Make sure, the region is same for DDB table on the AWS console and DDB client in the code for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET-Agent/src/Controllers/ProductsController.cs#L18) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore-Agent/Controllers/ProductsController.cs#L24) 
+5. Configure Sampling Rules in the [AWS X-Ray Console](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html).
+6. The X-Ray daemon running locally should be configured in the same region as that of sampling rules through X-Ray console
+
+### Installation
+
+For using the .NET Agent on your application, please see instructions below. For more information about .NET Agent, please take reference to [page](https://github.com/aws/aws-xray-dotnet-agent#installation).
+
+1. Make sure you meet the [prerequisites](https://github.com/aws/aws-xray-dotnet-agent#prerequisites) and [minimum requirements](https://github.com/aws/aws-xray-dotnet-agent#minimum-requirements) for using/building the .NET agent.
+2. Following the [steps](https://github.com/aws/aws-xray-dotnet-agent#internet-information-services-iis) if you're running on IIS or [steps](https://github.com/aws/aws-xray-dotnet-agent#others-not-iis) otherwise on how to install X-Ray .NET Agent for your apps.
+3. Launch your application, open the web link in the browser, perform some operations, and you can see traces in the AWS X-Ray Console.
+
+## URL for the Apps
 
 Access the application : <Default_URL>/index.html.
 
-### Policy
+## Policy
 
 ```json
  {
@@ -62,21 +94,13 @@ Access the application : <Default_URL>/index.html.
 }
 ```
 
-### Enable SQL query (optional)
-
-1. By default, SQL query is disabled. 
-2. Create a RDS SQL Server DB instance. [Steps](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html#CHAP_GettingStarted.Creating.SQLServer)
-3. Construct the connection string for SQL Server `"Data Source=(RDS endpoint),(port number);User ID=(your user name);Password=(your password);"`
-4. Fill it into web.config key "RDS_CONNECTION_STRING" for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Web.config#L38) and fill the string for [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L142)
-5. Uncomment call to `QuerySql()` for [.NET](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNET/src/Controllers/ProductsController.cs#L42) and [.NETCore](https://github.com/aws-samples/aws-xray-dotnet-webapp/blob/master/DotNETCore/Controllers/ProductsController.cs#L64)
-
-
 ## Documentation
 
-1. Code repository for AWS X-Ray SDK for [.NET/Core](https://github.com/aws/aws-xray-sdk-dotnet)
-2. AWS Documentation for using X-Ray SDK for [.NET](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-dotnet.html)
+1. Code repository for [AWS X-Ray .NET SDK](https://github.com/aws/aws-xray-sdk-dotnet) and for [AWS X-Ray .NET Agent](https://github.com/aws/aws-xray-dotnet-agent)
+2. AWS Documentation for using X-Ray .NET SDK and X-Ray .NET Agent can be found [here](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-dotnet.html)
 
 ## FAQ
 
 1. What to do if I get an "Error: Internal Server Error"?
   * You can use AWS X-Ray to debug this. Go to AWS X-Ray console and find the failed trace, and look for Exception. Probably because you EC2 instance don't have the enough permission to access DynamoDB or RDS DB instance.
+

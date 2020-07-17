@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product App - .NET</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <h1 style="color:darkslategray;">Sample App for .NET</h1>
+        <p></p>
+        <h2 style="color:maroon;">Get Product by Id</h2>
+        <label style="font-size:180%;"><b>Id:</b></label>
+        <input type="text" id="prodId" size="10" />
+        <input type="button" value="Search" onclick="find();" class="btn btn-primary" />
+        <p id="product" />
+    </div>
+    <div>
+        <form id="addProductForm" method="post">
+            <h2 style="color:maroon;">Add New Product</h2>
+            <p>
+                <label for="productId" style="font-size:150%;"><b>Id:</b></label>
+                <input type="number" name="Id" size="5" />
+            </p>
+            <p>
+                <label for="productName" style="font-size:150%;"><b>Name:</b></label>
+                <input type="text" name="Name" size="5" />
+            </p>
+            <p>
+                <label for="productPrice" style="font-size:150%;"><b>Price</b>:</label>
+                <input type="number" name="Price" size="5" />
+            </p>
+            <input type="button" id="addProduct" value="Add" class="btn btn-primary" />
+        </form>
+
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'api/products';
+
+        function formatItem(item) {
+            return 'Name: ' + item.Name + ' Price: $' + item.Price;
+        }
+
+        function find() {
+            var id = $('#prodId').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (data) {
+                    $('#product').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#product').text('Error: ' + err);
+                });
+        }
+
+        $('#addProduct').click(function () {
+            $.post(uri,
+                $("#addProductForm").serialize(),
+                function (value) {
+                    $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                },
+                "json"
+            );
+        });
+    </script>
+</body>
+</html>
